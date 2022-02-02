@@ -11,10 +11,10 @@ Este repositório contém todas as atividades desenvolvidas por [mim](https://ww
 >No primeiro módulo irei aprender tudo que preciso saber para iniciar minha carreira no mundo do desenvolvimento Web, me tornando uma pessoa preparada para os módulos de front-end e back-end.
 
 ##### Bloco 1: Unix e Bash
-- [ ] 1.3 - Fundamentos do Desenvolvimento Web
-- [ ] 1.3 - Introdução - Unix & Shell
-- [ ] 1.3 - Unix & Bash - Parte 1
-- [ ] 1.4 - Unix & Bash - Parte 2
+- [x] 1.3 - Fundamentos do Desenvolvimento Web
+- [x] 1.3 - Introdução - Unix & Shell
+- [x] 1.3 - Unix & Bash - Parte 1
+- [x] 1.4 - Unix & Bash - Parte 2
 
 ##### Bloco 2: Git, GitHub e Internet
 - [ ] 2.1 - Git & GitHub  - O que é e para que serve
