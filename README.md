@@ -226,7 +226,7 @@ Este repositório contém todas as atividades desenvolvidas por [mim](https://ww
 
 ## Ciência da Computação
 
-> Aqui irei apreder os principais conceitos da Ciência da Computação que são aplicados no dia a dia do desenvolvimento de software e como transformar a teoria em prática, analisando algoritmos e escolhendo as melhores estruturas de dados para resolver os problemas!
+> Aqui irei aprender os principais conceitos da Ciência da Computação que são aplicados no dia a dia do desenvolvimento de software e como transformar a teoria em prática, analisando algoritmos e escolhendo as melhores estruturas de dados para resolver os problemas!
 
 ##### Bloco 33: Introdução à Python
 - [ ] 33.1 - Introdução - Ciência da Computação
