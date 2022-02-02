@@ -1,22 +1,10 @@
-Clube da Luta
-O Poderoso Chefão
-Matrix
-A Origem
-Interestelar
-Gênio Indomável
-o Cavaleiro das Trevas
-Senhor dos Anéis
-Hobbit
-Homem Aranha
-Homem de Ferro
-Brasil
-Estados Unidos
 Afghanistan
 Albania
 Algeria
 Andorra
 Angola
 Antigua & Deps
+A Origem
 Argentina
 Armenia
 Australia
@@ -34,6 +22,7 @@ Bhutan
 Bolivia
 Bosnia Herzegovina
 Botswana
+Brasil
 Brazil
 Brunei
 Bulgaria
@@ -47,6 +36,7 @@ Central African Rep
 Chad
 Chile
 China
+Clube da Luta
 Colombia
 Comoros
 Congo
@@ -66,6 +56,7 @@ Egypt
 El Salvador
 Equatorial Guinea
 Eritrea
+Estados Unidos
 Estonia
 Ethiopia
 Fiji
@@ -73,6 +64,7 @@ Finland
 France
 Gabon
 Gambia
+Gênio Indomável
 Georgia
 Germany
 Ghana
@@ -83,11 +75,15 @@ Guinea
 Guinea-Bissau
 Guyana
 Haiti
+Hobbit
+Homem Aranha
+Homem de Ferro
 Honduras
 Hungary
 Iceland
 India
 Indonesia
+Interestelar
 Iran
 Iraq
 Ireland {Republic}
@@ -122,6 +118,7 @@ Maldives
 Mali
 Malta
 Marshall Islands
+Matrix
 Mauritania
 Mauritius
 Mexico
@@ -142,7 +139,9 @@ Nicaragua
 Niger
 Nigeria
 Norway
+o Cavaleiro das Trevas
 Oman
+O Poderoso Chefão
 Pakistan
 Palau
 Panama
@@ -156,14 +155,13 @@ Qatar
 Romania
 Russian Federation
 Rwanda
-St Kitts & Nevis
-St Lucia
 Saint Vincent & the Grenadines
 Samoa
 San Marino
 Sao Tome & Principe
 Saudi Arabia
 Senegal
+Senhor dos Anéis
 Serbia
 Seychelles
 Sierra Leone
@@ -176,6 +174,8 @@ South Africa
 South Sudan
 Spain
 Sri Lanka
+St Kitts & Nevis
+St Lucia
 Sudan
 Suriname
 Swaziland
