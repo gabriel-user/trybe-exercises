@@ -17,9 +17,9 @@ Este repositório contém todas as atividades desenvolvidas por [mim](https://ww
 - [x] 1.4 - Unix & Bash - Parte 2
 
 ##### Bloco 2: Git, GitHub e Internet
-- [ ] 2.1 - Git & GitHub  - O que é e para que serve
-- [ ] 2.2 - Git & GitHub - Entendendo os comandos
-- [ ] 2.3 - Internet - Entendendo como ela funciona
+- [x] 2.1 - Git & GitHub  - O que é e para que serve
+- [x] 2.2 - Git & GitHub - Entendendo os comandos
+- [x] 2.3 - Internet - Entendendo como ela funciona
 
 ##### Bloco 3: Introdução à HTML e CSS
 - [ ] 3.1 - Introdução - HTML & CSS
