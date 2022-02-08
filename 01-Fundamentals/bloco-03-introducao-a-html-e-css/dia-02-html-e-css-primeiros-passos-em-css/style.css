@@ -1,0 +1,40 @@
+body {
+    font-size: 16px;
+    text-align: center;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 65px;
+    color: orange;
+    text-decoration: underline;
+}
+
+ul {
+    background-color: antiquewhite;
+    line-height: 40px;
+}
+
+.background-grey {
+    background-color: grey;
+}
+
+p {
+    font-weight: 600;
+    font-size: 3em;
+    font-style: italic;
+}
+
+#list-yellow {
+    background-color: yellow;
+}
+
+
+#list-red {
+    background-color: red;
+}
+
+
+#list-brown {
+    background-color: brown;
+}
