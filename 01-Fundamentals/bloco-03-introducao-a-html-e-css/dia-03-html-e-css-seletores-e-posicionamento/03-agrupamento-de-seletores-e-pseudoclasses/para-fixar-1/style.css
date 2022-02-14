@@ -1,3 +1,7 @@
 h1 , p {
     text-align: center;
 }
+
+li:hover {
+    background-color: rgb(188, 207, 207);
+}
