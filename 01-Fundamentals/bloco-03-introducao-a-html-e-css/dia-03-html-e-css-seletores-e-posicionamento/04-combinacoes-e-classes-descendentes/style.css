@@ -44,3 +44,27 @@ li em {
 }
 
   /* 5 - (Bônus) Para cada link na lista de aliados da pessoa desenvolvedora, faça com que ao passar o mouse sobre cada um, o texto fique em negrito e assuma a cor de fonte "temática do site" */
+
+#aliados li a:hover {
+    font-weight: bold;
+}
+
+#aliados li a[href*="stackoverflow"] {
+    color: orange;
+}
+
+#aliados li a[href*="w3schools"] {
+    color: green;
+}
+
+#aliados li a[href*="mdn"] {
+    color: black;
+}
+
+#aliados li a[href*="devdocs"] {
+    color: yellow;
+}
+
+#aliados li a[href*="trybe"] {
+    color: green;
+}
