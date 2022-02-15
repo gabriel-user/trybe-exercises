@@ -8,6 +8,17 @@ ol li:nth-of-type(even) {
     color: green;
 }
 
-ol li:nth-of-type(odd) {
+ol li:nth-child(odd) {
     text-transform: uppercase;
+}
+
+/* 2 - Faça todas as tags Header (h1, h2...) possuírem cor de fonte vermelha e, se alguma delas estiver em itálico, aumente seu tamanho para 40px e acrescente uma borda de 1px preta e sólida. */
+
+h1, h2, h3, h4, h5, h6 {
+    color: red;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+    font-size: 40px;
+    border: 1px solid black;
 }
