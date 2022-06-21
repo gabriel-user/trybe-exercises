@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 
 const Task = (value) => {
@@ -7,7 +8,8 @@ const Task = (value) => {
 }
 
 function App() {
-  return ();
+  return (Task('Exercícios do dia 10.1')
+  );
 }
 
 export default App;
