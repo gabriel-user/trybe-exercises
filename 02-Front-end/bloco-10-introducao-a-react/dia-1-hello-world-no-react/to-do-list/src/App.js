@@ -17,8 +17,7 @@ const Task = (value) => {
 }
 
 function App() {
-  return (Task('Exercícios do dia 10.1')
-  );
+  return (compromissos.map((compromisso) => Task(compromisso)));
 }
 
 export default App;
