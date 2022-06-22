@@ -9,15 +9,19 @@ const compromissos = [
   'Monitoria Summer'
 ];
 
-
-const Task = (value) => {
-  return (
-    <li>{value}</li>
-  );
-}
-
 function App() {
-  return (compromissos.map((compromisso) => Task(compromisso)));
+  const task = (value) => {
+    return (
+      <li>{value}</li>
+    );
+  }  
+  
+  return (
+    <>
+      {compromissos.map((compromisso) => task(compromisso))}
+    </>
+  )
 }
 
 export default App;
+
