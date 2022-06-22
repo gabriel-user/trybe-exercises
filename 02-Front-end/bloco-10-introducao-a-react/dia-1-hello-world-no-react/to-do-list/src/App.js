@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css';
 
 const compromissos = [
   'Exercitar-se por 30 minutos',
@@ -10,15 +9,15 @@ const compromissos = [
 ];
 
 function App() {
-  const task = (value) => {
+  const task = (value, index) => {
     return (
-      <li>{value}</li>
+      <li key={index}>{value}</li>
     );
   }  
   
   return (
     <>
-      {compromissos.map((compromisso) => task(compromisso))}
+      {compromissos.map((value, index) => task(value, index))}
     </>
   )
 }
