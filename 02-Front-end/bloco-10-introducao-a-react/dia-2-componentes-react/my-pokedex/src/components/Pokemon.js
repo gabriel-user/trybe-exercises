@@ -3,7 +3,6 @@ import React from 'react';
 class Pokemon extends React.Component {
   render() {
     const {
-      id,
       name,
       type,
       averageWeight: { value, measurementUnit },
@@ -12,7 +11,7 @@ class Pokemon extends React.Component {
     } = this.props.data;
 
     return (
-      <div key={ id } className='card'>
+      <div className='card'>
         <img src={ image } alt= { name } />
         <p>{ name }</p>
         <p>{ type }</p>
