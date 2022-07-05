@@ -89,7 +89,7 @@ class PersonalForm extends React.Component {
               name="addressType"
               id="house"
               type="radio"
-              value="house" 
+              value="Casa" 
               onChange={ handleChange }
             />
             Casa
@@ -102,7 +102,7 @@ class PersonalForm extends React.Component {
               name="addressType"
               id="apart"
               type="radio"
-              value="apartment" 
+              value="Apartamento" 
               onChange={ handleChange }
             />
             Apartamento

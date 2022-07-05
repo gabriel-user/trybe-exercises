@@ -2,6 +2,7 @@ import React from 'react';
 
 import PersonalForm from './PersonalForm';
 import ProfessionalForm from './ProfessionalForm';
+import FormDataDisplay from './FormDataDisplay';
 
 const INITIAL_STATE = {
   name: '',
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
   resume: '',
   role: '',
   roleDescription: '',
+  submitted: false,
 }
 class Form extends React.Component {
   constructor() {
@@ -38,13 +40,21 @@ class Form extends React.Component {
     
     if(name === 'city' && value.match(/^\d/) ) this.setState({ [name]: "" })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { submitted } = this.state;
+
+    submitted ? this.setState(INITIAL_STATE) : this.setState({ submitted: true });  
+  }
   
   render() {
-    const { handleChange, handleBlur, state } = this;
+    const { handleChange, handleBlur, handleSubmit, state } = this;
+    const { submitted } = state;
     
     return(
       <div>
-        <form>
+        <form onSubmit={ handleSubmit }>
           <PersonalForm 
             handleChange={ handleChange }
             handleBlur={ handleBlur } 
@@ -54,7 +64,10 @@ class Form extends React.Component {
             handleChange={ handleChange } 
             state={ state } 
           />
+          <input type="submit" value="Enviar" />
+          <input type="submit" value="Limpar" />
         </form>
+        { submitted && (<FormDataDisplay state= { state }/>) }
       </div>
     );
   }
