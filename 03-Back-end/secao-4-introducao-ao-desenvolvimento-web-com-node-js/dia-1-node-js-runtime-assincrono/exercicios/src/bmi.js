@@ -1,11 +1,21 @@
-const handleImc = (weight, height) => {
+const readline = require('readline-sync');
+
+const handleBmi = (weight, height) => {
   const heightInCentimeters = Number(height) / 100;
   const heightElevated = heightInCentimeters * heightInCentimeters;
-  const imc = Number(weight) / heightElevated;
+  const bmi = Number(weight) / heightElevated;
 
-  return imc;
+  return bmi;
 }
 
-console.log(handleImc(105, 191));
+const main = () => {
+  const weight = readline.questionFloat('What your weight? ');
+  const height = readline.questionFloat('What your height? ');
+  const bmi = handleBmi(weight, height);
 
-module.exports = { handleImc };
+  console.log(`Your BMI is ${ bmi }`);
+}
+
+main();
+
+module.exports = { handleBmi };
