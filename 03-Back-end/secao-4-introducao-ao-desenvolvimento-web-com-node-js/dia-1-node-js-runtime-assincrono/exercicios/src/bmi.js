@@ -1,9 +1,11 @@
 const handleImc = (weight, height) => {
-  const heightInCentimeters = height / 100;
+  const heightInCentimeters = Number(height) / 100;
   const heightElevated = heightInCentimeters * heightInCentimeters;
-  const imc = weight / heightElevated;
+  const imc = Number(weight) / heightElevated;
 
   return imc;
 }
+
+console.log(handleImc(105, 191));
 
 module.exports = { handleImc };
