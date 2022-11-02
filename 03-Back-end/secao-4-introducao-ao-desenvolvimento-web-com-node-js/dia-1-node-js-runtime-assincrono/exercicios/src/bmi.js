@@ -19,7 +19,7 @@ const bmiCategory = (bmi) => {
 
 const main = () => {
   const weight = readline.questionFloat('What your weight? ');
-  const height = readline.questionFloat('What your height? ');
+  const height = readline.questionInt('What your height? ');
   const bmi = handleBmi(weight, height);
   const category = bmiCategory(bmi);
 
@@ -27,5 +27,3 @@ const main = () => {
 };
 
 main();
-
-module.exports = { handleBmi };
