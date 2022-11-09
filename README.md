@@ -122,47 +122,47 @@ Este repositório contém todas as atividades desenvolvidas por [mim](https://ww
 - [x] 16.1 - Projeto - Jogo de Trivia
 
 ##### Bloco 17: Context API e React Hooks
-- [ ] 17.1 - Context API do React
-- [ ] 17.2 - React Hooks - useState e useContext
-- [ ] 17.3 - React Hooks - useEffect e Hooks customizados
-- [ ] 17.4 - Projeto - StarWars Datatable com Context API e Hooks
+- [x] 17.1 - Context API do React
+- [x] 17.2 - React Hooks - useState e useContext
+- [x] 17.3 - React Hooks - useEffect e Hooks customizados
+- [x] 17.4 - Projeto - StarWars Datatable com Context API e Hooks
 
 ##### Bloco 18: Projeto App de Receitas
-- [ ] 18.1 - Projeto - App de Receitas
+- [x] 18.1 - Projeto - App de Receitas
 
 ## Desenvolvimento Back-end
 
 > Neste módulo, irei aprender como desenvolver um código de back-end robusto, limpo, escalável e seguro, dominando o uso de bancos de dados, a construção de APIs com testes automatizados.
 
 ##### Bloco 19: Docker: Utilizando Containers
-- [ ] 19.1 - Introdução - Back-end
-- [ ] 19.1 - Utilizando Containers - Docker
-- [ ] 19.2 - Manipulação e Criação de Imagens no Docker
-- [ ] 19.3 - Orquestrando Containers com Docker Compose
-- [ ] 19.4 - Projeto - Docker Todo-List
+- [x] 19.1 - Introdução - Back-end
+- [x] 19.1 - Utilizando Containers - Docker
+- [x] 19.2 - Manipulação e Criação de Imagens no Docker
+- [x] 19.3 - Orquestrando Containers com Docker Compose
+- [x] 19.4 - Projeto - Docker Todo-List
 
 ##### Bloco 20: Introdução à SQL
-- [ ] 20.1 - Introdução - Bancos de dados relacionais
-- [ ] 20.1 - Banco de dados SQL
-- [ ] 20.2 - Encontrando dados em um banco de dados
-- [ ] 20.3 - Filtrando dados de forma específica
-- [ ] 20.4 - Manipulando tabelas
-- [ ] 20.5 - Projeto - All For One
+- [x] 20.1 - Introdução - Bancos de dados relacionais
+- [x] 20.1 - Banco de dados SQL
+- [x] 20.2 - Encontrando dados em um banco de dados
+- [x] 20.3 - Filtrando dados de forma específica
+- [x] 20.4 - Manipulando tabelas
+- [x] 20.5 - Projeto - All For One
 
 ##### Bloco 21: Funções SQL, JOINs e Normalização
-- [ ] 21.1 - Funções mais usadas no SQL
-- [ ] 21.2 - Descomplicando JOINs
-- [ ] 21.3 - Transformando ideias em um modelo de banco de dados
-- [ ] 21.4 - Aula ao vivo + Projeto - One For All
+- [x] 21.1 - Funções mais usadas no SQL
+- [x] 21.2 - Descomplicando JOINs
+- [x] 21.3 - Transformando ideias em um modelo de banco de dados
+- [x] 21.4 - Aula ao vivo + Projeto - One For All
 
 ##### Bloco 22: Introdução ao desenvolvimento Web com Node.js
-- [ ] 22.1 - Intro - Node.js
-- [ ] 22.1 - Node.js - Um motor JavaScript
-- [ ] 22.2 - Node.js - Fluxo Assíncrono
-- [ ] 22.3 - Mocha, Chai e Sinon - Testes de Back-end com Node.js
-- [ ] 22.4 - Express - HTTP com Node.js
-- [ ] 22.5 - Express - Middlewares
-- [ ] 22.6 - Projeto - Talker Manager
+- [x] 22.1 - Intro - Node.js
+- [x] 22.1 - Node.js - Um motor JavaScript
+- [x] 22.2 - Node.js - Fluxo Assíncrono
+- [x] 22.3 - Mocha, Chai e Sinon - Testes de Back-end com Node.js
+- [x] 22.4 - Express - HTTP com Node.js
+- [x] 22.5 - Express - Middlewares
+- [x] 22.6 - Projeto - Talker Manager
 
 ##### Bloco 23: NodeJS: Camada de Serviço e Arquitetura Rest e Restful
 - [ ] 23.1 - Introdução - Arquitetura de Software
