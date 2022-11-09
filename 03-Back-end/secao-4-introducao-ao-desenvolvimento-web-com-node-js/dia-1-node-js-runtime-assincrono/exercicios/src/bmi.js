@@ -1,4 +1,5 @@
 const readline = require('readline-sync');
+const { bmiCategories } = require('./bmiCategories');
 
 const handleBMI = (weight, height) => {
   const heightInMeters = Number(height) / 100;
@@ -9,13 +10,17 @@ const handleBMI = (weight, height) => {
 };
 
 const handleBMICategory = (bmi) => {
-  if (bmi < 18.5) return 'Abaixo do peso (magreza)';
-  if (bmi >= 18.5 && bmi < 25) return 'Peso normal';
-  if (bmi >= 25.0 && bmi < 30) return 'Acima do peso (sobrepeso)';
-  if (bmi >= 30.0 && bmi < 35) return 'Obesidade grau I';
-  if (bmi >= 35.0 && bmi < 40) return 'Obesidade grau II';
-  return 'Obesidade graus III e IV';
+  const categoriesKeys = Object.keys(bmiCategories);
+  
+  const categoryResult = categoriesKeys.find((key) => {
+    const { min, max } = bmiCategories[key];
+    return bmi >= min && bmi <= max;
+  });
+  
+  return categoryResult;
 };
+
+handleBMICategory(50);
 
 const main = () => {
   const weight = readline.questionFloat('What\'s your weight? (kg) ');
@@ -23,7 +28,7 @@ const main = () => {
   const bmi = handleBMI(weight, height);
   const bmiCategory = handleBMICategory(bmi);
 
-  console.log(`Your BMI is ${bmi} - ${ bmiCategory }`);
+  console.log(`Your BMI is ${bmi} - ${ bmiCategory }.`);
 };
 
 main();

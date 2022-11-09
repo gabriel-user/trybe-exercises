@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bmi": "node ./src/bmi.js"
+    "bmi": "node ./src/bmi.js",
+    "fibonacci": "node ./src/fibonacci.js"
   },
   "author": "",
   "license": "ISC",
