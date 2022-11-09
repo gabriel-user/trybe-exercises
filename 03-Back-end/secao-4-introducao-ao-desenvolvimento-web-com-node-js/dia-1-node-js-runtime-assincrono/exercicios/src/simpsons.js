@@ -23,7 +23,7 @@ const filterSimpsons = async () => {
   const allSimpsons = await readJsonFile(SIMPSONS_PATH);
   const newSimpsonsArray = allSimpsons.filter(({ id }) => id !== '10' && id !== '6');
 
-  await writeSimpsons(SIMPSONS_PATH, JSON.stringify(newSimpsonsArray));
+  await writeJsonFile(SIMPSONS_PATH, JSON.stringify(newSimpsonsArray));
 };
 
 const createSimpsonsFamily = async () => {
@@ -48,5 +48,5 @@ const replaceNelson = async () => {
     { id: '15', name: 'Maggie Simpson' }
   );
 
-  await writeJsonFile(SIMPSONS_FAMILY_PATH, JSON.stringify(simpsonsFamily));
+  await writeJsonFile(SIMPSONS_FAMILY_PATH, JSON.stringify(simpsonsWithMaggie));
 };
