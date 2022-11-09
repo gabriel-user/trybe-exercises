@@ -13,14 +13,12 @@ const handleBMICategory = (bmi) => {
   const categoriesKeys = Object.keys(bmiCategories);
   
   const categoryResult = categoriesKeys.find((key) => {
-    const { min, max } = bmiCategories[key];
-    return bmi >= min && bmi <= max;
+    const { minBMI, maxBMI } = bmiCategories[key];
+    return bmi >= minBMI && bmi <= maxBMI;
   });
   
   return categoryResult;
 };
-
-handleBMICategory(50);
 
 const main = () => {
   const weight = readline.questionFloat('What\'s your weight? (kg) ');
