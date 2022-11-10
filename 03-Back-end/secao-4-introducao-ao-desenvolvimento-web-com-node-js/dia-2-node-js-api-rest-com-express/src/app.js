@@ -49,4 +49,13 @@ app.post('/movies', async (req, res) => {
   res.status(200).json(newMovie);
 });
 
+app.delete('/movies/:id', async (req, res) => {
+  const { id } = req.params;
+  const movies = await readFileJson(MOVIES_FILE_PATH);
+  const newMoviesArray = movies.filter((movie) => Number(movie.id) !== Number(id));
+  await writeFileJson(MOVIES_FILE_PATH, newMoviesArray);
+
+  res.status(200).end();
+});
+
 module.exports = app;
