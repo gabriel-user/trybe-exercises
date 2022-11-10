@@ -1,6 +1,6 @@
 const express = require('express');
 const { resolve } = require('path');
-const { readFileJson } = require('./utils/fsUtils');
+const { readFileJson, writeFileJson } = require('./utils/fsUtils');
 
 const app = express();
 app.use(express.json());
@@ -28,9 +28,13 @@ app.get('/movies', async (_req, res) => {
   res.status(200).json({ movies });
 });
 
-// app.post('/movies', async (req, res) => {
-//   const movies = await readFileJson(MOVIES_FILE_PATH);
-//   movies.push({ id: movies.length + 1, ...req.body });
-// });
+app.post('/movies', async (req, res) => {
+  const movies = await readFileJson(MOVIES_FILE_PATH);
+  const newMovie = { id: movies.length + 1, ...req.body }; 
+  movies.push(newMovie);
+  await writeFileJson(MOVIES_FILE_PATH, movies);
+
+  res.status(200).json({ newMovie });
+});
 
 module.exports = app;
