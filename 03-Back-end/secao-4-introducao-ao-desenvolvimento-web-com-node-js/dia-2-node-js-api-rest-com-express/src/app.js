@@ -23,4 +23,9 @@ app.get('/movies/:id', async (req, res) => {
   res.status(200).json({ movieResult });
 });
 
+app.get('/movies', async (_req, res) => {
+  const movies = await readFileJson(MOVIES_FILE_PATH);
+  res.status(200).json({ movies });
+});
+
 module.exports = app;
