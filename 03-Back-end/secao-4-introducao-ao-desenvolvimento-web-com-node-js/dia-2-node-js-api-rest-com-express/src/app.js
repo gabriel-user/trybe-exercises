@@ -7,6 +7,18 @@ app.use(express.json());
 
 const MOVIES_FILE_PATH = resolve(__dirname, './movies.json');
 
+app.put('/movies/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const movies = await readFileJson(MOVIES_FILE_PATH);
+  const movieToUpdate = movies.find((movie) => Number(movie.id) === id);
+  const indexOfMovieToUpdate = movies.indexOf(movieToUpdate);
+  const newMovieInfo = { id, ...req.body };
+  movies.splice(indexOfMovieToUpdate, 1, newMovieInfo);
+  await writeFileJson(MOVIES_FILE_PATH, movies);
+
+  res.status(200).json(newMovieInfo);
+});
+
 app.get('/movies/:id', async (req, res) => {
   const { id } = req.params;
   const movies = await readFileJson(MOVIES_FILE_PATH);
@@ -34,7 +46,7 @@ app.post('/movies', async (req, res) => {
   movies.push(newMovie);
   await writeFileJson(MOVIES_FILE_PATH, movies);
 
-  res.status(200).json({ newMovie });
+  res.status(200).json(newMovie);
 });
 
 module.exports = app;
