@@ -30,7 +30,14 @@ app.get('/movies/:id', async (req, res) => {
     const { id } = req.params;
     const movies = await readFileJson(MOVIES_FILE_PATH);
     const movieResult = movies.find((movie) => Number(movie.id) === Number(id));
-    res.status(200).json({ movieResult });
+
+    if (!movieResult) {
+      res.status(400).json({
+        message: 'Não foi encontrado nenhum filme com o ID informado', 
+      });
+    }
+
+    res.status(200).json(movieResult);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
