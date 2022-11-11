@@ -4,9 +4,11 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
+const app = require('../../src/app');
+
 describe('Usando o método GET em /chocolates', function () {
   it ('Retorna a lista completa de chocolates', async function () {
-    const output =   [
+    const output = [
       { "id": 1, "name": "Mint Intense", "brandId": 1 },
       { "id": 2, "name": "White Coconut", "brandId": 1 },
       { "id": 3, "name": "Mon Chéri", "brandId": 2 },
