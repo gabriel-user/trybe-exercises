@@ -7,14 +7,19 @@ app.use(express.json());
 
 const MOVIES_FILE_PATH = resolve(__dirname, './movies.json');
 
-app.put('/movies/:id', async (req, res) => {
+app.get('/movies/search', async (req, res) => {
   try {
-    const id = Number(req.params.id);
-    const movies = await (readFileJson(MOVIES_FILE_PATH));
-    const index = movies.findIndex((movie) => Number(movie.id) === id);
-    movies[index] = { id, ...req.body };
-    await writeFileJson(MOVIES_FILE_PATH, movies);
-    res.status(200).json(movies[index]);
+    const { q } = req.query;
+    const movies = await readFileJson(MOVIES_FILE_PATH);
+    
+    if (q) {
+      const filteredMovies = movies.filter(
+        ({ movie }) => (movie.toLowerCase()).includes(q.toLowerCase()),
+      );  
+      res.status(200).json(filteredMovies);
+    }
+    
+    res.status(500).end();
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
@@ -47,6 +52,19 @@ app.post('/movies', async (req, res) => {
     movies.push(newMovie);
     await writeFileJson(MOVIES_FILE_PATH, movies);
     res.status(201).json(newMovie);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
+
+app.put('/movies/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const movies = await (readFileJson(MOVIES_FILE_PATH));
+    const index = movies.findIndex((movie) => Number(movie.id) === id);
+    movies[index] = { id, ...req.body };
+    await writeFileJson(MOVIES_FILE_PATH, movies);
+    res.status(200).json(movies[index]);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
