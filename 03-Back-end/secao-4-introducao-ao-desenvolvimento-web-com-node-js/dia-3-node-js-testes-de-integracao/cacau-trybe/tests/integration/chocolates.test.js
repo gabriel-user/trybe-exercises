@@ -78,7 +78,7 @@ describe('Testaando a API Cacau Trybe', function () {
       const response = await chai.request(app).get('/chocolates/4');
 
       expect(response.status).to.be.equal(200);
-      expect(respose.body.chocolate).to.deep.equal({
+      expect(response.body.chocolate).to.deep.equal({
         id: 4,
         name: 'Mounds',
         brandId: 3,
