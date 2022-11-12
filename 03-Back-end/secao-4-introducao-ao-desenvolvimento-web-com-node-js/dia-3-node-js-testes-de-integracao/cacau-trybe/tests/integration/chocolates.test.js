@@ -85,4 +85,35 @@ describe('Testaando a API Cacau Trybe', function () {
       });
     });
   });
+
+  describe('Usando o método GET em /chocolates/:id para buscar o ID 99', function () {
+    it('Retorna status 404 com a mensagem "Chocolate not found"', async function () {
+      const response = await chai.request(app).get('/chocolates/99');
+
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal({
+        message: 'Chocolate not found',
+      });
+    });
+  });
+
+  describe('Usando o método GET em /chocolates/brand/:brandId para buscar o brandId 1', function () {
+    it('Retorna os chocolates da marca Lindt & Sprungli', async function () {
+      const response = await chai.request(app).get('/chocolates/brand/1');
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body.chocolates).to.deep.equal([
+        {
+          id: 1,
+          name: "Mint Intense",
+          brandId: 1
+        },
+        {
+          id: 2,
+          name: "White Coconut",
+          brandId: 1
+        }
+      ]);
+    });
+  });
 });
