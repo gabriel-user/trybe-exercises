@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllChocolates, getAllChocolatesByBrandId } = require('./cacauTrybe');
+const { getAllChocolates, getAllChocolatesByBrandId, getChocolatesById } = require('./cacauTrybe');
 
 const app = express();
 
@@ -12,8 +12,7 @@ app.get('/chocolates', async (_req, res) => {
 
 app.get('/chocolates/:id', async (req, res) => {
   const id = Number(req.params.id);
-  const chocolates = await getAllChocolates();
-  const chocolate = chocolates.find((choc) => Number(choc.id) === id);
+  const chocolate = await getChocolatesById(id);
 
   if (!chocolate) return res.status(404).json({ message: 'Chocolate not found'});
 

@@ -4,53 +4,14 @@ const fs = require('fs');
 const chaiHttp = require('chai-http');
 
 const app = require('../../src/app');
+const chocolatesMockFile = require('../mocks/chocolatesMockFile');
 
 const { expect } = chai;
-
 chai.use(chaiHttp);
-
-const mockFile = JSON.stringify({
-  brands: [
-    {
-      id: 1,
-      name: 'Lindt & Sprungli',
-    },
-    {
-      id: 2,
-      name: 'Ferrero',
-    },
-    {
-      id: 3,
-      name: 'Ghirardelli',
-    },
-  ],
-  chocolates: [
-    {
-      id: 1,
-      name: 'Mint Intense',
-      brandId: 1,
-    },
-    {
-      id: 2,
-      name: 'White Coconut',
-      brandId: 1,
-    },
-    {
-      id: 3,
-      name: 'Mon Chéri',
-      brandId: 2,
-    },
-    {
-      id: 4,
-      name: 'Mounds',
-      brandId: 3,
-    },
-  ],
-});
 
 describe('Testaando a API Cacau Trybe', function () {
   beforeEach(function () {
-    sinon.stub(fs.promises, 'readFile').resolves(mockFile);
+    sinon.stub(fs.promises, 'readFile').resolves(chocolatesMockFile);
   });
 
   afterEach(function () {
@@ -91,9 +52,7 @@ describe('Testaando a API Cacau Trybe', function () {
       const response = await chai.request(app).get('/chocolates/99');
 
       expect(response.status).to.be.equal(404);
-      expect(response.body).to.deep.equal({
-        message: 'Chocolate not found',
-      });
+      expect(response.body).to.deep.equal({ message: 'Chocolate not found' });
     });
   });
 
