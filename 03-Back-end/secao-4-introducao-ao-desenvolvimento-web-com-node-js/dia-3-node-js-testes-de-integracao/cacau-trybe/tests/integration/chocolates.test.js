@@ -82,7 +82,7 @@ describe('Testando a API Cacau Trybe', function () {
   });
 
   describe('Usando o método GET em /chocolates/search para retornar os chocolates que contém o termo pesquisado', function () {
-    it('Retorna nomes de chocolates que contenham o termo "Mo"', async function () {
+    it('Retorna chocolates que contenham "Mo" no nome', async function () {
       const response = await chai
         .request(app)
         .get('/chocolates/search')
@@ -96,7 +96,7 @@ describe('Testando a API Cacau Trybe', function () {
       expect(response.body).to.deep.equal(output);
     });
 
-    it('Retorna nomes de chocolates que contenham o termo "lalaland"', async function () {
+    it('Retorna um array vazio ao não encontrar nenhum chocolate', async function () {
       const response = await chai
         .request(app)
         .get('/chocolates/search')
@@ -108,6 +108,36 @@ describe('Testando a API Cacau Trybe', function () {
 
       expect(response.status).to.be.equal(404);
       expect(response.body).to.deep.equal(output);
+    });
+  });
+
+  describe('Usando o método PUT em /chocolates/:id', function () {
+    it('Atualiza chocolate com id 1', async function () {
+      const response = await chai
+        .request(app)
+        .put('/chocolates/1')
+        .send({ name: "Mint Pretty Good", brandId: 2 });
+      
+      const output = { 
+        id: 1,
+        name: "Mint Pretty Good",
+        brandId: 2
+      };
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body.chocolate).to.deep.equal(output);
+    });
+
+    it('Retornar uma mensagem de erro quando não há um chocolate com a id passada.', async function () {
+      const response = await chai
+        .request(app)
+        .put('/chocolates/200')
+        .send({ name: "Mint Pretty Good", brandId: 2 });
+      
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal({ 
+        message: "chocolate not found"
+      });
     });
   });
 });

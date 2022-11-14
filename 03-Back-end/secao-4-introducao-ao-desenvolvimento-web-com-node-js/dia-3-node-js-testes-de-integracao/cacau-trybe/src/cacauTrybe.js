@@ -1,5 +1,5 @@
 const { join } = require('path');
-const { readFileJson } = require('./utils/fsUtils');
+const { readFileJson, writeFileJson } = require('./utils/fsUtils');
 
 const CHOCOLATES_FILE_PATH = join(__dirname, '/files/cacauTrybeFile.json');
 
@@ -25,7 +25,7 @@ const getAllChocolatesByBrandId = async (brandId) => {
 
 const getAllChocolatesBySerchTerm = async (seachTerm) => {
   const cacauTrybe = await getAllChocolates();
-  const chocolatesBySearchTerm = await cacauTrybe.filter(({ name }) => {
+  const chocolatesBySearchTerm = cacauTrybe.filter(({ name }) => {
     return (name.toLowerCase()).includes(seachTerm.toLowerCase());
   });
 
@@ -34,9 +34,28 @@ const getAllChocolatesBySerchTerm = async (seachTerm) => {
   return chocolatesBySearchTerm;
 };
 
+const updateChocolate = async (id, body) => {
+  const cacauTrybe = await readFileJson(CHOCOLATES_FILE_PATH);
+  const chocolate = cacauTrybe.chocolates.find((choc) => {
+    return Number(choc.id) === Number(id);
+  });
+  
+  if (chocolate) {
+    const indexOfChocolate = await cacauTrybe.chocolates.indexOf(chocolate);
+    const newChocolate = { ...chocolate, ...body };
+    cacauTrybe.chocolates.splice(indexOfChocolate, 1, newChocolate);
+  
+    await writeFileJson(CHOCOLATES_FILE_PATH, cacauTrybe);
+    return newChocolate;
+  };
+  
+  return false;
+};
+
 module.exports = { 
   getAllChocolates,
   getAllChocolatesByBrandId,
   getChocolateById,
   getAllChocolatesBySerchTerm,
+  updateChocolate
 };

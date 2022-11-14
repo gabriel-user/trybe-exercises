@@ -10,4 +10,13 @@ const readFileJson = async (filePath) => {
   }
 };
 
-module.exports = { readFileJson };
+const writeFileJson = async (filePath, newContent) => {
+  try {
+    await fs.writeFile(filePath, JSON.stringify(newContent));
+  } catch (error) {
+    console.error(`Erro na escrita do arquivo: ${error}`);
+    return null;
+  }
+};
+
+module.exports = { readFileJson, writeFileJson };
