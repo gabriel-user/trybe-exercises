@@ -5,6 +5,15 @@ const app = express();
 
 app.use(express.json());
 
+
+app.get('/chocolates/total', async (_req, res) => {
+  const chocolates = await getAllChocolates();
+
+  res.status(200).json({
+    totalChocolates: chocolates.length
+  });
+});
+
 app.get('/chocolates', async (_req, res) => {
   const chocolates = await getAllChocolates();
   res.status(200).json({ chocolates });

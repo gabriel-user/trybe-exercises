@@ -4,14 +4,15 @@ const fs = require('fs');
 const chaiHttp = require('chai-http');
 
 const app = require('../../src/app');
-const chocolatesMockFile = require('../mocks/chocolatesMockFile');
+const chocolatesMockFileJson = require('../mocks/chocolatesMockFile');
+const chocolatesMockFile = JSON.parse(chocolatesMockFileJson);
 
 const { expect } = chai;
 chai.use(chaiHttp);
 
 describe('Testando a API Cacau Trybe', function () {
   beforeEach(function () {
-    sinon.stub(fs.promises, 'readFile').resolves(chocolatesMockFile);
+    sinon.stub(fs.promises, 'readFile').resolves(chocolatesMockFileJson);
   });
 
   afterEach(function () {
@@ -20,7 +21,7 @@ describe('Testando a API Cacau Trybe', function () {
 
   describe('Usando o método GET em /chocolates', function () {
     it('Retorna a lista completa de chocolates', async function () {
-      const output = JSON.parse(chocolatesMockFile).chocolates;
+      const output = chocolatesMockFile.chocolates;
       
       const response = await chai.request(app).get('/chocolates');
 
@@ -54,7 +55,7 @@ describe('Testando a API Cacau Trybe', function () {
   describe('Usando o método GET em /chocolates/brand/:brandId para buscar o brandId 1', function () {
     it('Retorna os chocolates da marca Lindt & Sprungli', async function () {
       const response = await chai.request(app).get('/chocolates/brand/1');
-
+      
       expect(response.status).to.be.equal(200);
       expect(response.body.chocolates).to.deep.equal([
         {
@@ -68,6 +69,17 @@ describe('Testando a API Cacau Trybe', function () {
           brandId: 1
         }
       ]);
+    });
+  });
+  describe('Usando o método GET em /chocolates/total para buscar o total de chocolates', function () {
+    it('Retorna a quantidade total de chocolates, que é 4', async function () {
+      const response = await chai.request(app).get('/chocolates/total');
+      console.log(response);
+
+      const output = chocolatesMockFile.chocolates.length;
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body.totalChocolates).to.be.equal(output);
     });
   });
 });
