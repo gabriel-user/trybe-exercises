@@ -1,10 +1,22 @@
 const express = require('express');
-const { getAllChocolates, getAllChocolatesByBrandId, getChocolateById } = require('./cacauTrybe');
+const { getAllChocolates, getAllChocolatesByBrandId, getChocolateById, getAllChocolatesBySerchTerm } = require('./cacauTrybe');
 
 const app = express();
 
 app.use(express.json());
 
+app.get('/chocolates/search', async (req, res) => {
+  const { name } = req.query;
+  const chocolates = await getAllChocolatesBySerchTerm(name);
+
+  if (!chocolates) {
+    return res.status(404).json({ 
+      message: "Não foi encontrando nenhum chocolate com o termo pesquisado"
+    });
+  }
+
+  res.status(200).json(chocolates);
+});
 
 app.get('/chocolates/total', async (_req, res) => {
   const chocolates = await getAllChocolates();

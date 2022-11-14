@@ -23,8 +23,20 @@ const getAllChocolatesByBrandId = async (brandId) => {
   return chocolatesByBrand;
 };
 
+const getAllChocolatesBySerchTerm = async (seachTerm) => {
+  const cacauTrybe = await getAllChocolates();
+  const chocolatesBySearchTerm = await cacauTrybe.filter(({ name }) => {
+    return (name.toLowerCase()).includes(seachTerm.toLowerCase());
+  });
+
+  if (chocolatesBySearchTerm.length === 0) return null;
+  
+  return chocolatesBySearchTerm;
+};
+
 module.exports = { 
   getAllChocolates,
   getAllChocolatesByBrandId,
-  getChocolateById 
+  getChocolateById,
+  getAllChocolatesBySerchTerm,
 };

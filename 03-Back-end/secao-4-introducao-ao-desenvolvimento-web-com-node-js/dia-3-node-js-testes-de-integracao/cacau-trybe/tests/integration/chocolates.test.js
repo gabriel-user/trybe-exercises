@@ -22,7 +22,6 @@ describe('Testando a API Cacau Trybe', function () {
   describe('Usando o método GET em /chocolates', function () {
     it('Retorna a lista completa de chocolates', async function () {
       const output = chocolatesMockFile.chocolates;
-      
       const response = await chai.request(app).get('/chocolates');
 
       expect(response.status).to.be.equal(200);
@@ -71,15 +70,44 @@ describe('Testando a API Cacau Trybe', function () {
       ]);
     });
   });
+
   describe('Usando o método GET em /chocolates/total para buscar o total de chocolates', function () {
     it('Retorna a quantidade total de chocolates, que é 4', async function () {
       const response = await chai.request(app).get('/chocolates/total');
-      console.log(response);
-
       const output = chocolatesMockFile.chocolates.length;
 
       expect(response.status).to.be.equal(200);
-      expect(response.body.totalChocolates).to.be.equal(output);
+      expect(response.body).to.deep.equal({ totalChocolates: output});
+    });
+  });
+
+  describe('Usando o método GET em /chocolates/search para retornar os chocolates que contém o termo pesquisado', function () {
+    it('Retorna nomes de chocolates que contenham o termo "Mo"', async function () {
+      const response = await chai
+        .request(app)
+        .get('/chocolates/search')
+        .query({name: 'Mo'});
+      
+      const output = chocolatesMockFile.chocolates.filter(
+        ({ name }) => name.includes("Mo")
+      );
+
+      expect(response.status).to.be.equal(200);
+      expect(response.body).to.deep.equal(output);
+    });
+
+    it('Retorna nomes de chocolates que contenham o termo "lalaland"', async function () {
+      const response = await chai
+        .request(app)
+        .get('/chocolates/search')
+        .query({name: 'lalaland'});
+      
+      const output = { 
+        message: "Não foi encontrando nenhum chocolate com o termo pesquisado"
+      }
+
+      expect(response.status).to.be.equal(404);
+      expect(response.body).to.deep.equal(output);
     });
   });
 });
