@@ -8,7 +8,7 @@ const getAllChocolates = async () => {
   return cacauTrybe.chocolates;
 };
 
-const getChocolatesById = async (id) => {
+const getChocolateById = async (id) => {
   const chocolates = await getAllChocolates();
   const chocolate = chocolates.find((choc) => Number(choc.id) === id);
   return chocolate;
@@ -26,5 +26,5 @@ const getAllChocolatesByBrandId = async (brandId) => {
 module.exports = { 
   getAllChocolates,
   getAllChocolatesByBrandId,
-  getChocolatesById 
+  getChocolateById 
 };
