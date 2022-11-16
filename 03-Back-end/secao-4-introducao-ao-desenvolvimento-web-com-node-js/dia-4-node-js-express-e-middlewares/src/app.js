@@ -1,13 +1,10 @@
 const express = require('express');
 
-const activitiesRouter = require('./routers/activitiesRouter');
-const signUpRouter = require('./routers/signUpRouter');
+const router = require('./routers/index');
 
 const app = express();
 
 app.use(express.json());
-
-app.use('/signup', signUpRouter);
-app.use('/activities', activitiesRouter);
+app.use(router);
 
 module.exports = app;
