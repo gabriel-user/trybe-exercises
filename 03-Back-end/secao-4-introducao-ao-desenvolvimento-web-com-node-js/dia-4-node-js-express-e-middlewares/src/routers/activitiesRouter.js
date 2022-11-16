@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
-router.post('/', (_req, res) => {
+const validateName = require('../middlewares/validateName');
+
+router.post('/', validateName, (_req, res) => {
   res.status(201).json({ message: 'Atividade cadastrada com sucesso!' });
 });
 
