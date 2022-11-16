@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/activities', activitiesRouter);
 app.use('/signup', signUpRouter);
+app.use('/activities', activitiesRouter);
 
 module.exports = app;
