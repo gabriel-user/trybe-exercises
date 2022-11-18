@@ -8,6 +8,6 @@ app.listen(PORT, async () => {
   console.log(`API TrybeCash está sendo executada na porta ${PORT}`)
 
   const [result] = await conn.execute('SELECT 1');
-  if(result) console.log('mySQL Connection Ok');
+  if (result) console.log('mySQL Connection OK');
 
 });

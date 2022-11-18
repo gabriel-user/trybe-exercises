@@ -1,8 +1,7 @@
 const conn = require('./connection');
 
 const insert = ({firstName, lastName, email, phone}) => conn.execute(
-  `INSERT INTO people
-    (first_name, last_name, email, phone) VALUES (?, ?, ?, ?)`,
+  `INSERT INTO people (first_name, last_name, email, phone) VALUES (?, ?, ?, ?)`,
   [firstName, lastName, email, phone],
 );
 
@@ -11,8 +10,8 @@ const findAll = () => conn.execute('SELECT * FROM people');
 const findById = (id) => conn.execute(`SELECT * FROM people WHERE id = ?`, [id]);
 
 const update = ({ firstName, lastName, email, phone }, id) => conn.execute(
-  `UPDATE people
-    SET first_name = ?, last_name = ?, email = ?, phone = ?
+  `UPDATE people 
+    SET first_name = ?, last_name = ?, email = ?, phone = ? 
     WHERE id = ?`,
   [firstName, lastName, email, phone, id],
 );

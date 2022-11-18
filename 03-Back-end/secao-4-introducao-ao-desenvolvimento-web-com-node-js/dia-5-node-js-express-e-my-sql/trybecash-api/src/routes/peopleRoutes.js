@@ -1,10 +1,9 @@
 const router = require('express').Router();
-
 const peopleDB = require('../db/peopleDB');
 
 router.post('/', async (req, res) => {
-  const person = req.body;
   try {
+    const person = req.body;
     const [ result ] = await peopleDB.insert(person);
     res.status(201).json({
       message: `Pessoa cadastrada com sucesso com o id ${result.insertId}`,
@@ -13,11 +12,9 @@ router.post('/', async (req, res) => {
     console.log(err);
     res.status(500).json({ message: 'Ocorreu um erro ao cadastrar uma pessoa' });
   }
-  
-  res.status(201).json(person);
 });
 
-router.get('/', async (req, res) => {
+router.get('/', async (_req, res) => {
   try {
     const [result] = await peopleDB.findAll();
     res.status(200).json(result);
@@ -32,10 +29,8 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     const [[result]] = await peopleDB.findById(id);
     
-    if (result) {
-      return res.status(200).json(result); 
-    }
-
+    if (result) return res.status(200).json(result);
+    
     res.status(404).json({ message: 'Pessoa não encontrada'});
   } catch (err) {
     console.log(err);
