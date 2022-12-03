@@ -1,8 +1,8 @@
-const BooksService = require('../services/BooksService');
+const booksService = require('../services/book.service');
 
 const getAll = async (_req, res) => {
   try {
-    const books = await BooksService.getAll();
+    const books = await booksService.getAll();
     return res.status(200).json(books);
   } catch (error) {
     console.log(error.message);
@@ -14,7 +14,7 @@ const getById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const book = await BooksService.getById(id);
+    const book = await booksService.getById(id);
     if(!book) return res.status(404).json({ message: 'Book not found' });
 
     return res.status(200).json(book);
@@ -28,7 +28,7 @@ const create = async (req, res) => {
   try {
     const { title, author, pageQuantity } = req.body;
     console.log(title);
-    const newBook = await BooksService.create({title, author, pageQuantity});
+    const newBook = await booksService.create({title, author, pageQuantity});
 
     return res.status(201).json(newBook);
   } catch (error) {
@@ -42,7 +42,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { title, author, pageQuantity } = req.body;
     
-    const [bookUpdated]  = await BooksService.update(id, { title, author, pageQuantity });
+    const [bookUpdated]  = await booksService.update(id, { title, author, pageQuantity });
     if(!bookUpdated) return res.status(404).json({ message: 'Book not found!' });
 
     return res.status(200).json({ message: 'Book updated!' });
@@ -56,7 +56,7 @@ const remove = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const bookDeleted = await BooksService.remove(id);
+    const bookDeleted = await booksService.remove(id);
     if (!bookDeleted) return res.status(404).json({ message: 'Book not found' });
 
     return res.status(200).json({ meesage: 'Book deleted '});
