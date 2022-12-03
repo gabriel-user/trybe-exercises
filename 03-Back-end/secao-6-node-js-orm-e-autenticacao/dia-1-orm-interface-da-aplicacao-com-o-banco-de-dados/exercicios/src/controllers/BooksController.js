@@ -10,6 +10,21 @@ const getAll = async (_req, res) => {
   }
 };
 
+const getById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const book = await BooksService.getById(id);
+    if(!book) return res.status(404).json({ message: 'Book not found' });
+
+    return res.status(200).json(book);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({ message: `Ocorreu um erro: ${error.message}`});
+  }
+};
+
 module.exports = {
   getAll,
+  getById,
 }
