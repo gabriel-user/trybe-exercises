@@ -12,8 +12,8 @@ const getById = async (bookId) => {
   return book;
 };
 
-const create = async ({ title, author, pageQuantity }) => {
-  const newBook = await Book.create({ title, author, pageQuantity });
+const create = async ({ title, author, pageQuantity, publisher }) => {
+  const newBook = await Book.create({ title, author, pageQuantity, publisher });
   return newBook;
 };
 
@@ -38,7 +38,10 @@ const remove = async (bookId) => {
 };
 
 const getByAuthor = async (author) => {
-  const books = await Book.findAll({ where: { author }, order: [['title', 'ASC']] });
+  const books = await Book.findAll({ 
+    where: { author },
+    order: [['title', 'ASC']]
+  });
 
   return books;
 };
