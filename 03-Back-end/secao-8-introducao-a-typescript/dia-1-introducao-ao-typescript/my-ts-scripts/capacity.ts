@@ -1,4 +1,4 @@
-const units: string[] = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
+const units: string[] = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
 
 export function convert(value: number, fromUnit: string, toUnit: string): number {
   const fromIndex: number = units.indexOf(fromUnit);
