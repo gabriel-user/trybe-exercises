@@ -22,10 +22,8 @@ const characters = [
 function printCharacter(character, index) {
     const { nickname, class: cls, createdAt } = character;
     console.log(`\n\n===== Character: ${index + 1} ========`);
-    console.log(`
-      nickname: ${nickname}
-      class: ${cls}
-      createdAt: ${createdAt}`
-    );
+    console.log(`nickname: ${nickname}
+    class: ${cls}
+    createdAt: ${createdAt}`);
 }
 characters.forEach(printCharacter);
