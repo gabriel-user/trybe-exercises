@@ -10,7 +10,7 @@ export function convert(value: number, fromUnit: string, toUnit: string): number
   return value * Math.pow(10, exponent)
 };
 
-export function exec() {
+export function exec():void {
   const value = readLineSync.question('Qual o comprimento? ');
   const baseUnit = readLineSync.question('Qual a unidade base? ');
   const baseUnitForConversion = readLineSync.question('Qual a unidade para conversão? ');
