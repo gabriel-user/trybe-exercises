@@ -1,3 +1,5 @@
+const readLineSync = require('readline-sync');
+
 const units: string[] = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
 
 export function convert(value: number, fromUnit: string, toUnit: string): number {
@@ -7,3 +9,14 @@ export function convert(value: number, fromUnit: string, toUnit: string): number
 
   return value * Math.pow(10, exponent)
 };
+
+export function exec() {
+  const value = readLineSync.question('Qual o comprimento? ');
+  const baseUnit = readLineSync.question('Qual a unidade base? ');
+  const baseUnitForConversion = readLineSync.question('Qual a unidade para conversão? ');
+
+  const result: number = convert(value, baseUnit, baseUnitForConversion);
+  console.log(`${value}${baseUnit} é igual a ${result}${baseUnitForConversion}`);
+};
+
+exec();
