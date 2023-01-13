@@ -1,0 +1,6 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist" // pasta onde nossos arquivos compilados serão salvos
+  }
+}
