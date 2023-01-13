@@ -1,4 +1,5 @@
-var readLineSync = require('readline-sync');
-var scripts = ['area', 'capacity', 'length', 'mass', 'volume'];
-var script = readLineSync.keyInSelect(scripts, 'Qual conversão realizar? ');
-require("./" + scripts[script]);
+"use strict";
+const readLineSync = require('readline-sync');
+const scripts = ['area', 'capacity', 'length', 'mass', 'volume'];
+const script = readLineSync.keyInSelect(scripts, 'Qual conversão realizar? ');
+require(`./${scripts[script]}`);
