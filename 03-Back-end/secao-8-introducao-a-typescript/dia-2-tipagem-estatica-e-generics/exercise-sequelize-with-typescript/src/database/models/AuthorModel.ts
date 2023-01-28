@@ -15,7 +15,7 @@ Author.init(
       autoIncrement: true,
     },
     name: {
-      type: STRING,
+      type: STRING(100),
       allowNull: false,
     },
   },
@@ -26,3 +26,5 @@ Author.init(
     tableName: "authors",
   }
 );
+
+export default Author;
