@@ -57,4 +57,3 @@ console.log(goiabadaComQueijo);
 
 const marshmallow: PizzaSugar = { flavor: 'Marshmallow', slices: 4 };
 console.log(marshmallow);
-
