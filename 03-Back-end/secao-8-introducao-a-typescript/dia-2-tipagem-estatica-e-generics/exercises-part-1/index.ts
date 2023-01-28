@@ -1,19 +1,29 @@
-class Car {
-  brand: string;
-  color: string;
-  doors: number;
+import Car from './car';
 
-  constructor(brand: string, color: string, doors: number) {
-    this.brand = brand;
-    this.color = color;
-    this.doors = doors;
-  };
+const gol = new Car('Volkswagen', 'Prata', 4);
 
-  honk(): void { console.log('Buzinando: Bip Bip.') };
-  turnOn(): void { console.log('Carro ligado.') };
-  turnOff(): void { console.log('Carro desligado.') };
-  speedUp(): void { console.log('Acelerando o carro.') };
-  speedDown(): void { console.log('Diminuindo a velocidade do carro.') };
-  stop(): void { console.log('Parando o carro.') };
-  turn(direction: string): void { console.log(`Virando para a ${direction}.`) };
-};
+gol.turnOn();
+gol.speedUp();
+gol.speedDown();
+gol.turn('esquerda');
+gol.speedUp();
+gol.speedDown();
+gol.turn('direita');
+gol.speedUp();
+gol.speedDown();
+gol.turn('direita');
+gol.speedDown();
+gol.stop();
+
+gol.speedUp();
+gol.speedDown();
+gol.turn('direita');
+gol.speedUp();
+gol.speedDown();
+gol.turn('esquerda');
+gol.speedUp();
+gol.speedDown();
+gol.turn('direita');
+gol.speedDown();
+gol.stop();
+gol.speedUp();
