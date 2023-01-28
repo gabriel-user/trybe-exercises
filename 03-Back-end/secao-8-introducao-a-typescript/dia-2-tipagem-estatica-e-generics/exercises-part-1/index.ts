@@ -1,5 +1,7 @@
 import Car from './car';
-import Pizza from './Pizza';
+import PizzaCommon from './PizzaCommon';
+import PizzaVegetarian from './PizzaVegetarian';
+import PizzaSugar from './PizzaSugar';
 
 const gol = new Car('Volkswagen', 'Prata', 4);
 
@@ -29,11 +31,30 @@ gol.speedDown();
 gol.stop();
 gol.speedUp();
 
-const calabresa = new Pizza('Calabresa', 8);
+const calabresa: PizzaCommon = { flavor: 'Calabresa', slices: 8 };
 console.log(calabresa);
 
-const marguerita = new Pizza('Marguerita', 6);
+const frango: PizzaCommon = { flavor: 'Frango', slices: 8 };
+console.log(frango);
+
+const pepperoni: PizzaCommon = { flavor: 'Pepperoni', slices: 6 };
+console.log(pepperoni);
+
+const marguerita: PizzaVegetarian = { flavor: 'Marguerita', slices: 8 };
 console.log(marguerita);
 
-const nutella = new Pizza('Nutella', 4);
+const palmito: PizzaVegetarian = { flavor: 'Palmito', slices: 4 };
+console.log(palmito);
+
+const cogumelo: PizzaVegetarian = { flavor: 'Cogumelo', slices: 8 };
+console.log(cogumelo);
+
+const nutella: PizzaSugar = { flavor: 'Nutella', slices: 4 };
 console.log(nutella);
+
+const goiabadaComQueijo: PizzaSugar = { flavor: 'Goiabada com Queijo', slices: 4 };
+console.log(goiabadaComQueijo);
+
+const marshmallow: PizzaSugar = { flavor: 'Marshmallow', slices: 4 };
+console.log(marshmallow);
+
