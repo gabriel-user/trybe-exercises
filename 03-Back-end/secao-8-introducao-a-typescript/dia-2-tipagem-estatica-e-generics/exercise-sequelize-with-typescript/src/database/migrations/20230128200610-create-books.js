@@ -1,42 +1,41 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('books', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
       },
       title: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(250),
         allowNull: false,
       },
       author_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        field: 'author_id',
         references: {
           model: 'authors',
-          key: 'id'
+          key: 'id',
         },
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       genre_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        field: 'genre_id',
         references: {
           model: 'genres',
-          key: 'id'
+          key: 'id',
         },
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
     });
   },
 
-  down: async (queryInterface, _Sequelize) => {
+  async down(queryInterface) {
     await queryInterface.dropTable('books');
-  }
+  },
 };

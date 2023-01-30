@@ -1,30 +1,26 @@
-import { Model, INTEGER, STRING } from "sequelize";
-import db from ".";
+import { Model, INTEGER, STRING } from 'sequelize';
+import db from './index';
 
 class Author extends Model {
   declare id: number;
   declare name: string;
 }
 
-Author.init(
-  {
-    id: {
-      type: INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
-    },
-    name: {
-      type: STRING(100),
-      allowNull: false,
-    },
+Author.init({
+  id: {
+    type: INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
   },
-  {
-    timestamps: false,
-    sequelize: db,
-    modelName: "author",
-    tableName: "authors",
-  }
-);
+  name: {
+    type: STRING(30),
+    allowNull: false,
+  },
+}, {
+  sequelize: db,
+  modelName: 'authors',
+  timestamps: false,
+});
 
 export default Author;

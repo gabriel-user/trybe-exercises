@@ -1,50 +1,50 @@
 import { Model, INTEGER, STRING } from 'sequelize';
-import db from '.';
-
+import db from './index';
 import Author from './AuthorModel';
-import Genre from './GenreModel';
 
 class Book extends Model {
   declare id: number;
   declare title: string;
   declare authorId: number;
   declare genreId: number;
-};
+}
 
-Book.init(
-  {
-    id: {
-      type: INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
-    },
-    title: {
-      type: STRING(250),
-      allowNull: false,
-    },
-    authorId: {
-      type: INTEGER,
-      allowNull: false,
-    },
-    genreId: {
-      type: INTEGER,
-      allowNull: false,
-    },
+Book.init({
+  id: {
+    type: INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
   },
-  {
-    timestamps: false,
-    underscored: true,
-    modelName: 'book',
-    tableName: 'books',
-    sequelize: db,
+  title: {
+    type: STRING(250),
+    allowNull: false,
   },
-);
+  authorId: {
+    type: INTEGER,
+    allowNull: false,
+    references: {
+      model: 'authors',
+      key: 'id',
+    }
+  },
+  genreId: {
+    type: INTEGER,
+    allowNull: false,
+    references: {
+      model: 'genres',
+      key: 'id',
+    }
+  }
+}, {
+  sequelize: db,
+  modelName: 'books',
+  underscored: true,
+  timestamps: false,
+});
 
-Book.belongsTo(Author);
-Author.hasMany(Book);
+Book.belongsTo(Author, { foreignKey: 'id' });
 
-Book.belongsTo(Genre);
-Genre.hasMany(Book);
+Author.hasMany(Book, { foreignKey: 'authorId' });
 
-
+export default Book;
